@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { content } from "@/content";
 import WaitlistButton from "./WaitlistButton";
 
@@ -5,11 +6,20 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-6 py-6">
-        <span className="flex items-center gap-2 font-serif text-[16px] font-semibold tracking-tight text-ink">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-serif text-[16px] font-semibold tracking-tight text-ink"
+        >
           <span aria-hidden>{content.icon}</span>
           {content.projectName}
-        </span>
+        </Link>
         <div className="flex items-center gap-3">
+          <Link
+            href="/demo"
+            className="hidden text-[13px] font-medium text-ink/80 hover:text-ink sm:inline-block"
+          >
+            Try the demo
+          </Link>
           <WaitlistButton label="Login" variant="nav" />
           <a
             href={content.githubUrl}
